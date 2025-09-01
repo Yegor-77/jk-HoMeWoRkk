@@ -1,49 +1,86 @@
 //1
-const friends = ["Mango", "Poly", "Kiwi", "Ajax"];
-
-let string = "";
-
-for (let i = 0; i < friends.length; i++) {
-  string += friends[i];
-  if (i < friends.length - 1) {
-    string += ", ";
+function logitems(array) {
+  for (let i = 0; i < array.length; i++) {
+    console.log(`${i + 1} - ${array[i]}`);
   }
 }
 
-console.log(string);
-
-//
-//
-
-let stribnge = friends.join(",");
-
-console.log(stribnge);
+logitems(["Mango", "Poly", "Ajax"]);
 
 //2
-const cards = [
-  "Карточка-1",
-  "Карточка-2",
-  "Карточка-3",
-  "Карточка-4",
-  "Карточка-5",
-];
 
-//
-const cardToRemove = "Карточка-3";
-const removeIndex = cards.indexOf(cardToRemove);
-if (removeIndex !== -1) {
-  cards.splice(removeIndex, 1);
+function calculateEngravingPrice(message, pricePerWord) {
+  const words = message.split(" ");
+  return words.length * pricePerWord;
 }
-console.log("Після видалення:", cards);
 
-//
-const cardToInsert = "Карточка-6";
-const insertIndex = 2;
-cards.splice(insertIndex, 0, cardToInsert);
-console.log("Після додавання:", cards);
+//3
+function findLongestWord(string) {
+  const words = string.split(" ");
+  let longestWord = words[0];
 
-//
-const cardToUpdate = "ккарточка-4";
-const updateIndex = 3;
-cards.splice(updateIndex, 1, cardToUpdate);
-console.log("Після оновлення:", cards);
+  for (const word of words) {
+    if (word.length > longestWord.length) {
+      longestWord = word;
+    }
+  }
+
+  return longestWord;
+}
+
+console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
+
+//4
+function formatString(string) {
+  if (string.length <= 40) {
+    return string;
+  } else {
+    return string.slice(0, 40) + "...";
+  }
+}
+
+console.log(formatString("Short text"));
+
+console.log(
+  formatString(
+    "This is a very very very very very long text that should be trimmed"
+  )
+);
+
+//5
+function checkForSpam(message) {
+  const lowerMessage = message.toLowerCase();
+  return lowerMessage.includes("spam") || lowerMessage.includes("sale");
+}
+
+console.log(checkForSpam("Latest technology news"));
+console.log(checkForSpam("Get best SALE offers now!"));
+console.log(checkForSpam("Beware of SPAM messages"));
+//6
+
+let input;
+const numbers = [];
+let total = 0;
+
+do {
+  input = prompt("Введіть число (або натисніть Cancel для виходу):");
+
+  if (input === null) {
+    break;
+  }
+
+  input = Number(input);
+
+  if (Number.isNaN(input)) {
+    alert("Було введено не число, попробуйте ще раз");
+  } else {
+    numbers.push(input);
+  }
+} while (true);
+
+if (numbers.length > 0) {
+  for (const num of numbers) {
+    total += num;
+  }
+  console.log(`Загальна сума чисел дорівнює ${total}`);
+}
