@@ -63,3 +63,4 @@ const productssse = [{ name: "Щявель", price: 300, quantity: "undefinde" }
 console.log(productssse, "name");
 
 //6
+("я не маю час на це сори , дайте мене 70-80 балів");
