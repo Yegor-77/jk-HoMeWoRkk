@@ -1,86 +1,65 @@
 //1
-function logitems(array) {
-  for (let i = 0; i < array.length; i++) {
-    console.log(`${i + 1} - ${array[i]}`);
-  }
-}
+const user = {
+  name: "Yehor",
+  age: 17,
+  hobby: "Online games",
+  premium: true,
+};
 
-logitems(["Mango", "Poly", "Ajax"]);
+user.mood = "happy";
+
+user.hobby = "skydiving";
+
+user.premium = false;
 
 //2
 
-function calculateEngravingPrice(message, pricePerWord) {
-  const words = message.split(" ");
-  return words.length * pricePerWord;
+function countProps(obj) {
+  return Object.keys(obj).length;
 }
+
+console.log(countProps({ name: "Yehorchik" }));
+
+console.log(countProps({}));
 
 //3
-function findLongestWord(string) {
-  const words = string.split(" ");
-  let longestWord = words[0];
 
-  for (const word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
+function findBestEmployee(employees) {
+  let bestNameee = "";
+  let maxxTasks = 0;
+
+  for (const [name, tasks] of Object.entries(employees)) {
+    if (tasks > maxxTasks) {
+      maxxTasks = tasks;
+      bestNameee = name;
     }
   }
-
-  return longestWord;
+  return bestNameee;
 }
-
-console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
 
 //4
-function formatString(string) {
-  if (string.length <= 40) {
-    return string;
-  } else {
-    return string.slice(0, 40) + "...";
+
+function countTotalSalary(employees) {
+  let total = 0;
+  for (const salary of Object.values(employees)) {
+    total += salary;
   }
+  return total;
 }
-
-console.log(formatString("Short text"));
-
-console.log(
-  formatString(
-    "This is a very very very very very long text that should be trimmed"
-  )
-);
 
 //5
-function checkForSpam(message) {
-  const lowerMessage = message.toLowerCase();
-  return lowerMessage.includes("spam") || lowerMessage.includes("sale");
+function getAllPropValues(arr, prop) {
+  const result = [];
+  for (const obj of arr) {
+    if (prop in obj) {
+      result.push(obj[prop]);
+    }
+  }
+  return result;
 }
 
-console.log(checkForSpam("Latest technology news"));
-console.log(checkForSpam("Get best SALE offers now!"));
-console.log(checkForSpam("Beware of SPAM messages"));
+const productssse = [{ name: "Щявель", price: 300, quantity: "undefinde" }];
+
+console.log(productssse, "name");
+
 //6
-
-let input;
-const numbers = [];
-let total = 0;
-
-do {
-  input = prompt("Введіть число (або натисніть Cancel для виходу):");
-
-  if (input === null) {
-    break;
-  }
-
-  input = Number(input);
-
-  if (Number.isNaN(input)) {
-    alert("Було введено не число, попробуйте ще раз");
-  } else {
-    numbers.push(input);
-  }
-} while (true);
-
-if (numbers.length > 0) {
-  for (const num of numbers) {
-    total += num;
-  }
-  console.log(`Загальна сума чисел дорівнює ${total}`);
-}
