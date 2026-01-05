@@ -1,23 +1,5 @@
-.slider {
-  max-width: 400px;
-  margin: 40px auto;
-}
-
-.slider__input {
-  width: 100%;
-}
-
-.slider__image {
-  display: block;
-  margin: 20px auto;
-  max-width: 100%;
-}
-
-#box {
-  width: 50px;
-  height: 50px;
-  background-color: red;
-  position: absolute;
-  top: 500px;
-  left: 50px;
+.lazy-img {
+  width: 300px;
+  height: 200px;
+  background-color: #f0f0f0;
 }
